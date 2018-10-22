@@ -6,5 +6,5 @@ use App\Model\Rate;
 
 interface GetRateInterface
 {
-    public function getRate(): ?Rate;
+    public function getRate(Rate $rate): ?Rate;
 }

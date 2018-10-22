@@ -12,7 +12,7 @@ class Rate
     private $baseCurrency;
     private $secondCurrency;
 
-    public function __construct(Currency $baseCurrency, Currency $secondCurrency, $rate)
+    public function __construct(Currency $baseCurrency, Currency $secondCurrency, $rate = null)
     {
         $this->baseCurrency   = $baseCurrency;
         $this->secondCurrency = $secondCurrency;
@@ -21,6 +21,11 @@ class Rate
         } else {
             $this->rate = $rate;
         }
+    }
+
+    public function setRate($rate): void
+    {
+        $this->rate = $rate;
     }
 
     public function rateOf(Currency $currency)

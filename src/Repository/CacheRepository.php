@@ -9,9 +9,11 @@ use App\SetRateInterface;
 class CacheRepository implements GetRateInterface, SetRateInterface
 {
 
-    public function getRate(): ?Rate
+    public function getRate(Rate $rate): ?Rate
     {
         // TODO: Implement getRate() method.
+        $rate->setRate(1);
+        return $rate;
     }
 
     public function setRate(Rate $rate): void

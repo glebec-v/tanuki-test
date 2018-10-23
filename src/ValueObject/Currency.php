@@ -2,6 +2,13 @@
 
 namespace App\ValueObject;
 
+/**
+ * Class Currency
+ * @package App\ValueObject
+ *
+ * thanks to Carlos Buenosvinos, Christian Soronellas and Keyvan Akbary
+ * book Domain-Driven Design in PHP
+ */
 class Currency
 {
     private $isoCode;
@@ -19,6 +26,11 @@ class Currency
     public function equals(Currency $currency)
     {
         return $currency->isoCode() === $this->isoCode();
+    }
+
+    public function __toString(): string
+    {
+        return $this->isoCode();
     }
 
     private function setIsoCode($anIsoCode)

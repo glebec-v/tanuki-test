@@ -2,16 +2,19 @@
 
 namespace App\Repository;
 
-use App\Model\Rate;
+use App\DTO\CurrencyCodes;
+use App\ValueObject\Rate;
 use App\GetRateInterface;
 
 class OutHttpRepository implements GetRateInterface
 {
 
-    public function getRate(Rate $rate): ?Rate
+    public function getRate(CurrencyCodes $names): ?Rate
     {
         // TODO: Implement getRate() method.
-        $rate->setRate(1);
+        // rate value:
+        $value = 0.5;
+        $rate = Rate::fromRate($value, Rate::fromNames($names));
         return $rate;
     }
 }

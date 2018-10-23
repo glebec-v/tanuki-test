@@ -2,9 +2,10 @@
 
 namespace App;
 
-use App\Model\Rate;
+use App\DTO\CurrencyCodes;
+use App\ValueObject\Rate;
 
 interface GetRateInterface
 {
-    public function getRate(Rate $rate): ?Rate;
+    public function getRate(CurrencyCodes $names): ?Rate;
 }

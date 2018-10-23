@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Model\Rate;
+use App\ValueObject\Rate;
 
 interface SetRateInterface
 {

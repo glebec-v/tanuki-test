@@ -2,12 +2,16 @@
 
 include __DIR__.'/vendor/autoload.php';
 
+// for demo purpose
 $input = 'EUR/USD';
 $isoCodes = explode("/", $input);
 if (2 !== count($isoCodes)) {
     echo 'Incorrect currency pair format';
 }
 
-$rate = (new \App\Main)->run($isoCodes);
+$codes = new \App\DTO\CurrencyCodes(
+    new \App\ValueObject\Currency($isoCodes[0]),
+    new \App\ValueObject\Currency($isoCodes[1])
+);
 
-var_dump($rate);
+echo (\App\Model\RateRetriever::fromCurrencyCodes($codes))->getRate().PHP_EOL;
